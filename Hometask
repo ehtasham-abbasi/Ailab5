@@ -3,33 +3,33 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
-#Load the dataset
 data pd.DataFrame({
 'Age': [56, 43, 32, 25, 36, 46, 36, 50, 19, 20],
-'Gender': [' ['Male', 'Male', 'Female', 'Male', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female'], 'Weight': [88.3, 74.9, 68.1, 56.1, 69.7, 45.1, 59.2, 49.8, 45.2, 71.9], 'Height': [1.71, 1.53, 1.66, 1.79, 1.77, 1.63, 1.75, 1.55, 1.44, 1.87), 'Max_BPM': [180, 179, 162, 188, 168, 159, 164, 141, 186, 157], 'Avg_BPM': [157, 151, 167, 156, 161, 155, 141, 142, 168, 157],
+'Gender': ['Male', 'Male', 'Female', 'Male', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female'], 
+'Weight': [88.3, 74.9, 68.1, 56.1, 69.7, 45.1, 59.2, 49.8, 45.2, 71.9], 
+'Height': [1.71, 1.53, 1.66, 1.79, 1.77, 1.63, 1.75, 1.55, 1.44, 1.87), 
+'Max_BPM': [180, 179, 162, 188, 168, 159, 164, 141, 186, 157], 
+'Avg_BPM': [157, 151, 167, 156, 161, 155, 141, 142, 168, 157],
 'Resting_BPM': [60, 64, 65, 62, 65, 54, 64, 66, 61, 57],
 'Session_B': [1.69, 1.63, 1.67, 1.58, 1.64, 1.59, 1.61, 1.42, 1.69, 1.66],
-*Calories': [1313, 883, 827, 552, 1566, 1313, 895, 983, 1014, 1303),
-*Workout': ['Yoga', 'HIIT', 'Cardio', 'Strength', 'Strength', 'Yoga', 'Cardio', 'Cardio', 'HIIT', 'Cardio'], 'Fat': [12.6, 33.9, 29.7, 26.5, 28.5, 32.0, 30.6, 38.4, 32.3, 27.7],
+'Calories': [1313, 883, 827, 552, 1566, 1313, 895, 983, 1014, 1303),
+'Workout': ['Yoga', 'HIIT', 'Cardio', 'Strength', 'Strength', 'Yoga', 'Cardio', 'Cardio', 'HIIT', 'Cardio'], 
+'Fat': [12.6, 33.9, 29.7, 26.5, 28.5, 32.0, 30.6, 38.4, 32.3, 27.7],
 'Water': [65.1, 62.2, 66.4, 68.3, 62.8, 65.2, 64.7, 60.3, 66.5, 64.0],
 'Intensity': [4, 3, 2, 2, 3, 5, 3, 4, 3, 2],
 'Experience': [3, 4, 5, 5, 2, 4, 5, 4, 3, 4],
 'BMI': [30.2, 31.9, 24.7, 19.5, 22.2, 28.9, 30.7, 33.4, 28.3, 22.4]
 })
-# Encode categorical data
 data['Gender']
 data['Gender'].map({'Male': 0, 'Female': 1})
 data['Workout'] = data['Workout'].map({'Yoga': 0, 'HIIT': 1, 'Cardio': 2, 'Strength': 3})
-# Split features and Labels
-x = data.drop("Workout', axis=1)
-y = data['Workout']
-#Train-test split
-x_train, x_test, y_train, y_test train_test_split(x, y, test_size-0.3, random_state=42)
-# Initialize Decision Tree Classifier
-classifier DecisionTreeClassifier(random_state=42) classifier.fit(X_train, y_train)
 
-y_pred = classifier.predict(X_test)
-# Evaluation
+x = data.drop('Workout', axis=1)
+y = data['Workout']
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size-0.3, random_state=42)
+classifier = DecisionTreeClassifier(random_state=42) 
+classifier.fit(X_train, y_train)
 accuracy = accuracy_score (y_test, y_pred) conf_matrix = confusion_matrix(y_test, y_pred)
 print("Accuracy:", accuracy)
 print("Confusion Matrix:\n", conf_matrix)
