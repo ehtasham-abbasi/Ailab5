@@ -1,0 +1,23 @@
+import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+
+features - np.array([
+[6.00, 180, 12),
+[5.92, 190, 11),
+[5.58, 170, 12],
+[5.92, 165, 10], [5.00, 100, 6],
+[5.50, 150, 8],
+[5.42, 130, 7],
+[5.75, 150, 9]
+])
+
+labels - np.array(["male", "male", "male", "male", "female", "female", "female", "female"])
+classifier.fit(features, labels)
+new_entry_np = np.array([[6.0, 180, 12]])
+prediction_np = classifier.predict(new_entry_np)
+print("Prediction (without Pandas):", prediction_np)
+# Add the new entry to the dataset
+updated_features_np np.vstack([features, new_entry_np]) updated_labels_np - np.append(labels, prediction_np)
+# Retrain the classifier with the updated dataset classifier.fit(updated_features_np, updated_labels_np)
+#Verify the updated dataset
+print("Updated Features (Numpy):\n", updated_features_np) print("Updated Labels (Numpy):\n", updated_labels_np)
